@@ -1,0 +1,375 @@
+/* General Styling */
+:root {
+    --primary-color: #007bff; /* Bright blue for highlights/accents */
+    --secondary-color: #6c757d; /* Muted grey for subtle text */
+    --background-dark: #1a1a1a; /* Darker black for body/sections */
+    --background-light: #2c2c2c; /* Slightly lighter for contrast elements */
+    --text-color: #e0e0e0; /* Light grey for main text */
+    --heading-color: #ffffff; /* White for headings */
+    --border-color: rgba(255, 255, 255, 0.2); /* Subtle white border */
+    --transition-speed: 0.3s ease;
+}
+
+html {
+    scroll-behavior: smooth;
+    background-color: var(--background-dark);
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif; /* Using Google Font */
+    background-color: var(--background-dark);
+    color: var(--text-color);
+    line-height: 1.6; /* Improved readability */
+}
+
+/* Reusable Container */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: var(--background-dark);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    z-index: 999;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Deeper shadow */
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: 700; /* Bolder */
+    color: var(--heading-color);
+    letter-spacing: 0.5px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px; /* Increased gap */
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 17px;
+    font-weight: 400;
+    transition: color var(--transition-speed), transform var(--transition-speed);
+    position: relative; /* For underline effect */
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+    color: var(--primary-color);
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+
+/* Underline effect for nav links */
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    display: block;
+    margin-top: 5px;
+    right: 0;
+    background: var(--primary-color);
+    transition: width var(--transition-speed) ease;
+    -webkit-transition: width var(--transition-speed) ease;
+}
+
+.nav-links li a:hover::after,
+.nav-links li a.active::after {
+    width: 100%;
+    left: 0;
+    background: var(--primary-color);
+}
+
+/* Sections */
+.section {
+    padding: 120px 0 60px; /* Adjust padding for container */
+    min-height: 100vh;
+    display: flex; /* For centering content vertically in hero */
+    align-items: center; /* For centering content vertically in hero */
+    justify-content: center; /* For centering content horizontally in hero */
+    background-color: var(--background-dark);
+}
+
+/* Hero Section (Home) */
+.hero {
+    text-align: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('your-background-image.jpg') no-repeat center center/cover; /* Optional: Add a subtle background image with overlay */
+    color: var(--heading-color);
+}
+
+.hero .content {
+    animation: fadeIn 1s ease-out; /* Fade in animation */
+}
+
+.profile-pic {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 5px solid var(--primary-color); /* More prominent border */
+    margin-bottom: 25px;
+    object-fit: cover;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Soft shadow */
+    transition: transform 0.4s ease-in-out;
+}
+
+.profile-pic:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
+h1 {
+    font-size: 52px; /* Larger heading */
+    margin-bottom: 10px;
+    font-weight: 700;
+    color: var(--heading-color);
+}
+
+.tagline {
+    font-size: 20px;
+    color: var(--secondary-color);
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+.highlight {
+    color: var(--primary-color);
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px 28px;
+    border-radius: 50px; /* Pill shape */
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+}
+
+.btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: translateY(-3px);
+}
+
+/* Headings (h2) */
+h2 {
+    font-size: 42px; /* Larger h2 */
+    font-weight: 600;
+    color: var(--heading-color);
+    position: relative;
+    padding-bottom: 10px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 80px; /* Shorter underline */
+    height: 4px; /* Thicker underline */
+    background-color: var(--primary-color);
+    border-radius: 2px;
+}
+
+/* About Section */
+#about p {
+    font-size: 18px;
+    max-width: 800px;
+    margin: 0 auto 15px auto;
+    text-align: center;
+}
+
+/* Projects Section */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+    gap: 30px; /* Space between projects */
+    margin-top: 40px;
+}
+
+.project-item {
+    background-color: var(--background-light); /* Slightly lighter background */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.project-item:hover {
+    transform: translateY(-5px); /* Lift on hover */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.project-item h3 {
+    font-size: 24px;
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.project-item p {
+    font-size: 16px;
+    color: var(--text-color);
+    margin-bottom: 20px;
+}
+
+.project-link {
+    display: inline-block;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color var(--transition-speed);
+}
+
+.project-link:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* Contact Section */
+.contact-info {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.contact-info p {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.contact-info a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color var(--transition-speed);
+}
+
+.contact-info a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* Footer */
+footer {
+    background-color: var(--background-light);
+    color: var(--secondary-color);
+    text-align: center;
+    padding: 25px 0;
+    font-size: 15px;
+    border-top: 1px solid var(--border-color);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 40px;
+    }
+
+    h2 {
+        font-size: 34px;
+    }
+
+    .nav-links {
+        gap: 20px;
+    }
+
+    .profile-pic {
+        width: 160px;
+        height: 160px;
+    }
+
+    .project-item {
+        padding: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        flex-direction: column;
+        padding: 15px 20px;
+    }
+
+    .logo {
+        margin-bottom: 15px;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav-links li a {
+        font-size: 15px;
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+
+    h2 {
+        font-size: 28px;
+    }
+
+    .section {
+        padding: 100px 0 50px;
+    }
+
+    .profile-pic {
+        width: 140px;
+        height: 140px;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr; /* Stack projects on small screens */
+    }
+
+    .project-item {
+        margin: 0 auto;
+        max-width: 350px;
+    }
+}
+.profile-pic {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%; /* This is the key property for the circle */
+    border: 5px solid var(--primary-color);
+    margin-bottom: 25px;
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    transition: transform 0.4s ease-in-out;
+}
