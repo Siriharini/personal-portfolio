@@ -1,0 +1,845 @@
+/* --- Root Variables (NO CHANGES) --- */
+:root {
+    --primary-color: #28B5B5;
+    --secondary-color: #28B5B5;
+    --background-dark: #000000;
+    --background-light: #000000;
+    --text-color: #E0E0E0;
+    --heading-color: #E0E0E0;
+    --border-color: rgba(255, 255, 255, 0.2);
+    --transition-speed: 0.3s ease;
+    --level-beginner: 35%;
+    --level-intermediate: 70%;
+    --level-advanced: 95%;
+}
+
+html {
+    scroll-behavior: smooth;
+    background-color: var(--background-dark);
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-dark);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- HEADER AND NAVIGATION BAR (MODIFIED) --- */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: var(--background-dark);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    z-index: 999;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+    box-sizing: border-box;
+}
+
+/* Specific styling for the home icon in the logo */
+.logo a i {
+    font-size: 30px; /* Adjust size as needed */
+    color: #28B5B5; /* Your requested color for the home symbol */
+    transition: color var(--transition-speed); /* Smooth color transition on hover */
+}
+
+.logo a:hover i {
+    color: var(--text-color); /* Changes to default text color on hover */
+}
+
+.logo {
+    flex-shrink: 0;
+    margin-right: 20px;
+}
+
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+    flex-wrap: nowrap;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 17px;
+    font-weight: 400;
+    transition: color var(--transition-speed), transform var(--transition-speed);
+    position: relative;
+    white-space: nowrap;
+    display: block;
+    padding: 5px 0;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+    color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    display: block;
+    margin-top: 5px;
+    right: 0;
+    background: var(--primary-color);
+    transition: width var(--transition-speed) ease;
+    -webkit-transition: width var(--transition-speed) ease;
+}
+
+.nav-links li a:hover::after,
+.nav-links li a.active::after {
+    width: 100%;
+    left: 0;
+    background: var(--primary-color);
+}
+
+/* --- SECTION PADDING (ORIGINAL CODE) --- */
+.section {
+    padding: calc(75px + 60px) 0 60px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--background-dark);
+    box-sizing: border-box;
+}
+
+/* --- HERO SECTION (MODIFIED FOR ID STYLING) --- */
+.hero {
+    text-align: center;
+    background-color: var(--background-dark);
+    color: var(--heading-color);
+}
+
+.hero .content {
+    animation: fadeIn 1s ease-out;
+    width: 100%;
+}
+
+.hero-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Specific styling for the hero profile picture using its ID */
+#hero-profile-pic { /* Changed from .profile-pic */
+    width: 300px;
+    height: 300px;
+    border: 5px solid var(--primary-color);
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(40, 181, 181, 0.5);
+    transition: transform 0.4s ease-in-out;
+}
+
+#hero-profile-pic:hover { /* Changed from .profile-pic:hover */
+    transform: scale(1.05);
+}
+
+.hero-text-content {
+    text-align: center;
+}
+
+h1 {
+    font-size: 58px;
+    margin-bottom: 15px;
+    font-weight: 700;
+    color: var(--heading-color);
+}
+
+.tagline {
+    font-size: 20px;
+    color: var(--text-color);
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: -15px;
+    margin-bottom: 30px;
+}
+
+.social-icons a {
+    color: var(--text-color);
+    font-size: 32px;
+    transition: color var(--transition-speed), transform var(--transition-speed);
+}
+
+.social-icons a:hover {
+    color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+.highlight {
+    color: var(--primary-color);
+    white-space: nowrap;
+}
+
+.greeting {
+    color: var(--primary-color);
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: black;
+    padding: 12px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
+    box-shadow: 0 4px 15px rgba(40, 181, 181, 0.3);
+}
+
+.btn:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-3px);
+}
+
+h2 {
+    font-size: 42px;
+    font-weight: 600;
+    color: var(--heading-color);
+    position: relative;
+    padding-bottom: 10px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 80px;
+    height: 4px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+}
+
+/* --- ABOUT SECTION (MODIFIED FOR ID STYLING) --- */
+#about .about-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Specific styling for the about me image using its ID */
+#about-me-image { /* Changed from .about-image */
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    border-radius: 8px;
+    border: 5px solid var(--primary-color);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease;
+}
+
+#about-me-image:hover { /* Changed from #about .about-image:hover */
+    transform: scale(1.02);
+}
+
+#about p {
+    font-size: 18px;
+    margin: 0;
+    text-align: center;
+}
+
+/* --- SKILLS SECTION (ORIGINAL CODE) --- */
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.skill-item {
+    background-color: var(--background-light);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(255, 255, 255, 0.1);
+    text-align: center;
+    transition: transform var(--transition-speed);
+    flex: 1 1 280px;
+    max-width: 350px;
+}
+
+.skill-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(40, 181, 181, 0.2);
+}
+
+.skill-name {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--heading-color);
+    margin-bottom: 20px;
+}
+
+.skill-bar-container {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    height: 12px;
+    overflow: hidden;
+    position: relative;
+}
+
+.skill-bar {
+    height: 100%;
+    background-color: var(--primary-color);
+    width: 0;
+    border-radius: 5px;
+    transition: width 1.5s ease-out;
+    position: relative;
+}
+
+.skill-bar[data-percentage="70"] { width: 70%; }
+.skill-bar[data-percentage="65"] { width: 65%; }
+.skill-bar[data-percentage="40"] { width: 40%; }
+.skill-bar[data-percentage="30"] { width: 30%; }
+
+.skill-bar::after {
+    content: attr(data-percentage) '%';
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: black;
+    font-size: 0.75rem;
+    font-weight: bold;
+    white-space: nowrap;
+    text-shadow: 0 0 3px rgba(0,0,0,0.5);
+    opacity: 0;
+    transition: opacity 0.5s ease 1s;
+}
+
+.skill-bar.animated::after {
+    opacity: 1;
+}
+
+/* --- PROJECT/CERTIFICATE SECTIONS (MODIFIED FOR INDIVIDUAL IMAGE STYLING) --- */
+.project-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.certificate-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.project-item {
+    background-color: var(--background-light);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(255, 255, 255, 0.1);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    text-align: center;
+    flex: 1 1 300px;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.certificate-item {
+    background-color: var(--background-light);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(255, 255, 255, 0.1);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    text-align: left;
+    flex: 1 1 300px;
+    max-width: 400px;
+}
+
+.project-item:hover,
+.certificate-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(40, 181, 181, 0.2);
+}
+
+.project-image-link {
+    display: block;
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    border: 2px solid var(--border-color);
+    transition: border-color var(--transition-speed), transform var(--transition-speed);
+}
+
+.project-image-link:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+/* Individual styling for project images using their IDs */
+#project-youtube-img, /* Changed from .project-preview-image */
+#project-weather-img, /* Changed from .project-preview-image */
+#project-ecommerce-img { /* Changed from .project-preview-image */
+    width: 100%;
+    height: 200px; /* Consistent height for project images */
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+    transition: transform var(--transition-speed);
+}
+
+/* Hover effect for project images (applied via the link) */
+.project-image-link:hover #project-youtube-img, /* Changed from .project-image-link:hover .project-preview-image */
+.project-image-link:hover #project-weather-img, /* Changed from .project-image-link:hover .project-preview-image */
+.project-image-link:hover #project-ecommerce-img { /* Changed from .project-image-link:hover .project-preview-image */
+    transform: scale(1.05);
+}
+
+.project-item h3 {
+    font-size: 24px;
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.certificate-item h3 {
+    font-size: 24px;
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.project-item p {
+    font-size: 16px;
+    color: var(--text-color);
+    margin-bottom: 15px;
+}
+
+.certificate-item p {
+    font-size: 16px;
+    color: var(--text-color);
+    margin-bottom: 20px;
+}
+
+.project-tech {
+    font-size: 0.95rem;
+    color: var(--secondary-color);
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.project-links {
+    margin-top: auto;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    width: 100%;
+    padding-top: 10px;
+}
+
+.certificate-item .platform,
+.certificate-item .date {
+    font-size: 0.95rem;
+    color: var(--secondary-color);
+    margin-top: -10px;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.project-link {
+    display: inline-block;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color var(--transition-speed);
+}
+
+.project-link:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+/* --- CONTACT SECTION STYLING (MODIFIED) --- */
+#contact .contact-intro {
+    font-size: 18px;
+    margin-bottom: 20px;
+    text-align: center;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: var(--background-light);
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(255, 255, 255, 0.1);
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    background-color: var(--background-dark);
+    color: var(--text-color);
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: rgba(224, 224, 224, 0.6);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(40, 181, 181, 0.3);
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.contact-form .btn {
+    align-self: center;
+    width: fit-content;
+    padding: 12px 40px;
+}
+
+.contact-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    background-color: var(--background-light);
+    padding: 20px 25px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(255, 255, 255, 0.1);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    flex: 1 1 280px;
+    max-width: 350px;
+}
+
+.contact-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(40, 181, 181, 0.2);
+}
+
+.contact-icon {
+    font-size: 28px;
+    color: var(--primary-color);
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.contact-item p {
+    margin: 0;
+    font-size: 17px;
+}
+
+.contact-item a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color var(--transition-speed);
+}
+
+.contact-item a:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+/* --- FOOTER (ORIGINAL CODE) --- */
+footer {
+    background-color: var(--background-light);
+    color: var(--text-color);
+    text-align: center;
+    padding: 25px 0;
+    font-size: 15px;
+    border-top: 1px solid var(--border-color);
+}
+
+/* --- KEYFRAMES (ORIGINAL CODE) --- */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- MEDIA QUERIES (MODIFIED FOR ID STYLING) --- */
+@media (min-width: 769px) {
+    .hero-content-wrapper {
+        flex-direction: row-reverse;
+        justify-content: center;
+        text-align: left;
+    }
+
+    /* Use ID for specific styling */
+    #hero-profile-pic { /* Changed from .profile-pic */
+        margin-right: 0;
+        margin-left: 50px;
+        margin-bottom: 0;
+    }
+
+    .hero-text-content {
+        text-align: left;
+    }
+
+    .social-icons {
+        justify-content: flex-start;
+    }
+
+    #about .about-content {
+        flex-direction: row;
+        align-items: flex-start;
+        text-align: left;
+        gap: 40px; /* Added gap for better spacing */
+    }
+
+    /* Use ID for specific styling */
+    #about-me-image { /* Changed from .about-image */
+        max-width: 350px; /* Adjust as needed for larger screens */
+        margin-right: 25px;
+        flex-shrink: 0; /* Ensure it doesn't shrink */
+    }
+
+    #about p {
+        text-align: left;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 15px 25px;
+    }
+    .nav-links {
+        gap: 20px;
+    }
+    .section {
+        padding-top: 135px;
+        padding-bottom: 60px;
+    }
+
+    h1 {
+        font-size: 48px;
+    }
+
+    h2 {
+        font-size: 34px;
+    }
+
+    /* Use ID for specific styling */
+    #hero-profile-pic { /* Changed from .profile-pic */
+        width: 250px;
+        height: 250px;
+    }
+
+    /* Use ID for specific styling */
+    #about-me-image { /* Changed from .about-image */
+        max-width: 200px;
+    }
+
+    .social-icons {
+        margin-bottom: 25px;
+    }
+
+    .project-item,
+    .certificate-item,
+    .skill-item {
+        padding: 25px;
+    }
+
+    /* Apply styles to individual project images via their IDs */
+    #project-youtube-img, /* Changed from .project-preview-image */
+    #project-weather-img, /* Changed from .project-preview-image */
+    #project-ecommerce-img { /* Changed from .project-preview-image */
+        height: 180px;
+    }
+
+    .contact-details {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-item {
+        max-width: 400px;
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        padding: 15px 15px;
+    }
+
+    .logo {
+        margin-bottom: 15px;
+        margin-right: 0;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        width: 100%;
+    }
+
+    .nav-links li a {
+        font-size: 15px;
+        padding: 5px 8px;
+    }
+
+    .section {
+        padding-top: calc(140px + 40px);
+        padding-bottom: 50px;
+    }
+
+    h1 {
+        font-size: 38px;
+    }
+
+    h2 {
+        font-size: 28px;
+    }
+
+    /* Use ID for specific styling */
+    #hero-profile-pic { /* Changed from .profile-pic */
+        width: 200px;
+        height: 200px;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+
+    .hero-content-wrapper {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    /* Use ID for specific styling */
+    #hero-profile-pic { /* Changed from .profile-pic */
+        margin-right: 0;
+        margin-left: 0;
+        margin-bottom: 20px;
+    }
+
+    .social-icons {
+        font-size: 28px;
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+
+    .project-grid,
+    .certificate-grid,
+    .skills-grid {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .project-item,
+    .certificate-item,
+    .skill-item {
+        margin: 0 auto;
+        max-width: 350px;
+    }
+
+    /* Use ID for specific styling */
+    #about-me-image { /* Changed from .about-image */
+        max-width: 180px;
+    }
+
+    /* Apply styles to individual project images via their IDs */
+    #project-youtube-img, /* Changed from .project-preview-image */
+    #project-weather-img, /* Changed from .project-preview-image */
+    #project-ecommerce-img { /* Changed from .project-preview-image */
+        height: 160px;
+    }
+
+    .contact-item {
+        padding: 15px 20px;
+        font-size: 16px;
+    }
+
+    .contact-icon {
+        font-size: 24px;
+    }
+
+    /* Form specific adjustments for mobile */
+    .contact-form {
+        padding: 20px;
+        gap: 15px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        font-size: 15px;
+        padding: 12px;
+    }
+
+    .contact-form .btn {
+        padding: 10px 30px;
+        font-size: 16px;
+    }
+}
